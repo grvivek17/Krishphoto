@@ -27,7 +27,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/91984154635?text=Hi%20Krish%20Photography!%20I%20would%20like%20to%20inquire%20about%20your%20wedding%20photography%20services."
+        href="https://wa.me/919841546355?text=Hi%20Krish%20Photography!%20I%20would%20like%20to%20inquire%20about%20your%20wedding%20photography%20services."
         className="whatsapp-fab"
         target="_blank"
         rel="noopener noreferrer"

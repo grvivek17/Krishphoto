@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contact</h4>
             <ul>
-              <li><a href="tel:+91984154635">+91 984154635</a></li>
+              <li><a href="tel:+919841546355">+91 9841546355</a></li>
               <li><a href="mailto:hello@krishphotography.in">hello@krishphotography.in</a></li>
               <li><a href="#">@krishphotography</a></li>
               <li style={{ marginTop: '1.5rem' }}>

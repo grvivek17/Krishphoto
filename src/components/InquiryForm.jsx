@@ -38,12 +38,12 @@ export default function InquiryForm() {
               </div>
               <div className="contact-detail-item">
                 <span className="contact-detail-icon">📞</span>
-                <a href="tel:+91984154635" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>+91 984154635</a>
+                <a href="tel:+919841546355" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>+91 9841546355</a>
               </div>
               <div className="contact-detail-item">
                 <span className="contact-detail-icon">💬</span>
                 <a
-                  href="https://wa.me/91984154635?text=Hi%20Krish%20Photography!%20I%20would%20like%20to%20inquire%20about%20your%20wedding%20photography%20services."
+                  href="https://wa.me/919841546355?text=Hi%20Krish%20Photography!%20I%20would%20like%20to%20inquire%20about%20your%20wedding%20photography%20services."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="whatsapp-link"
@@ -88,7 +88,7 @@ export default function InquiryForm() {
                     </div>
                     <div className="form-group">
                       <label className="form-label" htmlFor="phone">WhatsApp / Phone</label>
-                      <input id="phone" name="phone" type="tel" className="form-input" placeholder="+91 984154635" value={form.phone} onChange={handleChange} />
+                      <input id="phone" name="phone" type="tel" className="form-input" placeholder="+91 9841546355" value={form.phone} onChange={handleChange} />
                     </div>
                   </div>
 
