@@ -53,7 +53,7 @@ export default function InquiryForm() {
               </div>
               <div className="contact-detail-item">
                 <span className="contact-detail-icon">✉️</span>
-                <span>hello@krishphotography.in</span>
+                <a href="mailto:rbkrishnamoorthy@gmail.com" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>rbkrishnamoorthy@gmail.com</a>
               </div>
               <div className="contact-detail-item">
                 <span className="contact-detail-icon">📸</span>
