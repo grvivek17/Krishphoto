@@ -1,16 +1,44 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+
+// ─── EmailJS Configuration ───────────────────────────────────────────────────
+// Steps to activate:
+// 1. Sign up free at https://www.emailjs.com  (use rbkrishnamoorthy@gmail.com)
+// 2. Add a Gmail service → copy the Service ID below
+// 3. Create an Email Template → copy the Template ID below
+// 4. Go to Account → API Keys → copy your Public Key below
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';   // e.g. 'service_abc123'
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // e.g. 'template_xyz789'
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';   // e.g. 'AbCdEfGhIjKlMnOp'
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function InquiryForm() {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', weddingDate: '', venue: '', budget: '', message: '',
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus('sending');
+
+    const templateParams = {
+      from_name:    form.name,
+      from_email:   form.email,
+      phone:        form.phone,
+      wedding_date: form.weddingDate,
+      venue:        form.venue,
+      budget:       form.budget,
+      message:      form.message,
+      to_email:     'rbkrishnamoorthy@gmail.com',
+    };
+
+    emailjs
+      .send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+      .then(() => setStatus('success'))
+      .catch(() => setStatus('error'));
   };
 
   return (
@@ -71,15 +99,20 @@ export default function InquiryForm() {
 
           {/* Right column — Form */}
           <div className="contact-form">
-            {submitted ? (
+            {status === 'success' ? (
               <div style={{ textAlign: 'center', padding: 'var(--space-12) 0' }}>
                 <div style={{ fontSize: '3rem', marginBottom: 'var(--space-4)' }}>🌸</div>
                 <h3 style={{ color: 'var(--color-maroon)', marginBottom: 'var(--space-4)' }}>Thank You!</h3>
-                <p>We've received your inquiry and will be in touch within 24 hours. We can't wait to hear your love story.</p>
+                <p>Your inquiry has been sent to Krishnamoorthy at <strong>rbkrishnamoorthy@gmail.com</strong>. We'll be in touch within 24 hours!</p>
               </div>
             ) : (
               <>
                 <h3>Book a Consultation</h3>
+                {status === 'error' && (
+                  <div style={{ background: '#fff5f5', border: '1px solid #fecaca', borderRadius: 'var(--radius-md)', padding: '0.75rem 1rem', marginBottom: 'var(--space-4)', fontSize: '0.875rem', color: '#dc2626' }}>
+                    ⚠️ Something went wrong. Please email us directly at <a href="mailto:rbkrishnamoorthy@gmail.com" style={{ color: 'var(--color-maroon)' }}>rbkrishnamoorthy@gmail.com</a>
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} noValidate>
                   <div className="form-row">
                     <div className="form-group">
@@ -125,8 +158,13 @@ export default function InquiryForm() {
                     <textarea id="message" name="message" className="form-textarea" placeholder="Share the vision, mood, or any special ceremonies you'd like us to capture..." value={form.message} onChange={handleChange} />
                   </div>
 
-                  <button type="submit" className="btn-primary form-submit">
-                    Send My Inquiry ✦
+                  <button
+                    type="submit"
+                    className="btn-primary form-submit"
+                    disabled={status === 'sending'}
+                    style={{ opacity: status === 'sending' ? 0.7 : 1, cursor: status === 'sending' ? 'not-allowed' : 'pointer' }}
+                  >
+                    {status === 'sending' ? '⏳ Sending...' : 'Send My Inquiry →'}
                   </button>
                 </form>
               </>
