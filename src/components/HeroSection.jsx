@@ -1,37 +1,50 @@
 import { useEffect, useRef } from 'react';
 
+const slides = [
+  '/w-baraat.png',
+  '/w-mandap.png',
+  '/w-mehendi.png',
+  '/w-couple.png',
+  '/w-sangeet.png',
+  '/c-haldi.png',
+];
+
 export default function HeroSection() {
-  const bgRef = useRef(null);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1600&q=80';
-    img.onload = () => bgRef.current?.classList.add('loaded');
-  }, []);
-
-  const scrollTo = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <section className="hero" id="home">
-      <div className="hero-bg" ref={bgRef} />
+
+      {/* Crossfade slideshow */}
+      <div className="hero-slideshow" aria-hidden="true">
+        {slides.map((src, i) => (
+          <div
+            key={src}
+            className="hero-slide"
+            style={{ animationDelay: `${i * (24 / slides.length)}s`, backgroundImage: `url(${src})` }}
+          />
+        ))}
+      </div>
+
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        <span className="hero-label">Krish Photography · Est. 2012</span>
+        <span className="hero-label">Chennai · Pan-India · Destination Weddings</span>
         <h1 className="hero-title">
           Timeless Stories.<br /><em>Unforgettable Love.</em>
         </h1>
         <p className="hero-subtitle">
-          Capturing the grandeur, emotion, and sacred beauty of Indian weddings —<br />
-          from intimate Mehendis to grand Baraat processions.
+          Luxury Indian wedding & lifestyle photography by Krishnamoorthy
         </p>
         <div className="hero-actions">
-          <button className="btn-primary" onClick={() => scrollTo('portfolio')}>
+          <button
+            className="btn-primary"
+            onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             View Portfolio
           </button>
-          <button className="btn-ghost" onClick={() => scrollTo('contact')}>
+          <button
+            className="btn-secondary"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          >
             Send Inquiry
           </button>
         </div>

@@ -219,18 +219,29 @@
   overflow: hidden;
 }
 
-.hero-bg {
+/* Hero slideshow crossfade */
+.hero-slideshow {
   position: absolute;
   inset: 0;
-  background-image: url('https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=1600&q=80');
-  background-size: cover;
-  background-position: center 30%;
-  transform: scale(1.05);
-  transition: transform 8s ease-in-out;
+  z-index: 0;
 }
 
-.hero-bg.loaded {
-  transform: scale(1);
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  animation: heroSlide 24s infinite;
+  transform: scale(1.05);
+}
+
+@keyframes heroSlide {
+  0%       { opacity: 0;   transform: scale(1.05); }
+  8%       { opacity: 1;   transform: scale(1);    }
+  33%      { opacity: 1;   transform: scale(1);    }
+  41%      { opacity: 0;   transform: scale(1.04); }
+  100%     { opacity: 0;   transform: scale(1.05); }
 }
 
 .hero-overlay {
