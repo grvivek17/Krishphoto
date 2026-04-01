@@ -6,19 +6,13 @@ export default function AboutSection() {
           {/* Image Column */}
           <div className="about-image-wrapper">
             <div className="about-years-badge">
-              <span className="num">12+</span>
+              <span className="num">20+</span>
               <span className="text">Years of Stories</span>
             </div>
             <img
-              src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800&q=80"
-              alt="Indian wedding couple in traditional attire"
+              src="/krishnamoorthy.png"
+              alt="Krishnamoorthy — Founder, Krish Photography"
               className="about-image-main"
-              loading="lazy"
-            />
-            <img
-              src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=500&q=80"
-              alt="Wedding detail — hands adorned with mehndi"
-              className="about-image-accent"
               loading="lazy"
             />
           </div>
@@ -51,20 +45,6 @@ export default function AboutSection() {
               borderRadius: 'var(--radius-lg)',
               borderLeft: '3px solid var(--color-gold)',
             }}>
-              <img
-                src="/krishnamoorthy.png"
-                alt="Krishnamoorthy — Founder, Krish Photography"
-                style={{
-                  width: '90px',
-                  height: '90px',
-                  borderRadius: '50%',
-                  objectFit: 'cover',
-                  objectPosition: 'top',
-                  border: '3px solid var(--color-gold-light)',
-                  flexShrink: 0,
-                  boxShadow: '0 4px 16px rgba(128,0,0,0.15)',
-                }}
-              />
               <div>
                 <span style={{
                   fontFamily: 'var(--font-sans)',
