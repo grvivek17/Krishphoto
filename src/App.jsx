@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
+import WeddingTypes from './components/WeddingTypes';
 import PortfolioSection from './components/PortfolioSection';
 import CeremoniesSection from './components/CeremoniesSection';
 import Testimonials from './components/Testimonials';
@@ -18,6 +19,7 @@ function App() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
+        <WeddingTypes />
         <PortfolioSection />
         <CeremoniesSection />
         <Testimonials />

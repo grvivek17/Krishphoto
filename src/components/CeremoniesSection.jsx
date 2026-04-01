@@ -27,11 +27,11 @@ export default function CeremoniesSection() {
       <div className="container">
         <div className="ceremonies-header">
           <p className="section-label">Every Milestone, Captured</p>
-          <h2>From Haldi to Godh Bharai</h2>
+          <h2>From Haldi to Baby Photography</h2>
           <div className="gold-divider centered" style={{ background: 'var(--color-gold)' }} />
           <p style={{ color: 'rgba(255,255,255,0.65)', maxWidth: '560px', margin: '0 auto', fontFamily: 'var(--font-sans)' }}>
             Life's most cherished moments deserve to live forever — from the turmeric-soaked joy
-            of a Haldi to the sacred celebration of a new life in Godh Bharai. We document every milestone with love.
+            of a Haldi to the tender, delightful moments of your little one's first photographs. We document every milestone with love.
           </p>
         </div>
 
